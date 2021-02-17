@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'org.jlleitschuh.gradle.ktlint'
 }
 
 android {
@@ -30,16 +34,61 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
+    // Testing
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.extJunit
+    androidTestImplementation testDependencies.espressoCore
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // Support
+    implementation supportDependencies.kotlin
+    implementation supportDependencies.coreKtx
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.constraintLayout
+    implementation supportDependencies.legacySupport
+    implementation supportDependencies.recyclerView
+    implementation supportDependencies.material
+    implementation supportDependencies.glide
+    kapt supportDependencies.glideCompiler
+    implementation supportDependencies.anko
+    implementation supportDependencies.ankoCommon
+    implementation supportDependencies.gifDrawable
+    implementation supportDependencies.multiDex
+
+    // Architecture Component
+    implementation architectureDependencies.navFragment
+    implementation architectureDependencies.navUi
+    implementation architectureDependencies.navFragmentKtx
+    implementation architectureDependencies.navUiKtx
+    implementation architectureDependencies.lifecycleExtension
+    implementation architectureDependencies.lifecycleViewModel
+    implementation architectureDependencies.paging
+
+    // Dependency Injection
+    implementation diDependencies.koinCore
+    implementation diDependencies.koinAndroid
+    implementation diDependencies.koinVm
+    testImplementation diDependencies.koinTest
+
+    // Network
+    implementation networkDependencies.coroutinesCore
+    implementation networkDependencies.coroutinesAndroid
+    implementation networkDependencies.coroutinesTest
+    implementation networkDependencies.coroutinesAdapter
+    implementation networkDependencies.retrofit
+    implementation networkDependencies.retrofitMoshi
+    implementation networkDependencies.okhttp
+    implementation networkDependencies.moshi
+    implementation networkDependencies.moshiKotlin
+    implementation networkDependencies.rxAndroid
+    implementation networkDependencies.rxJava
+    implementation networkDependencies.rxBinding
+    implementation networkDependencies.gson
 }
+
+check.dependsOn ktlint
