@@ -8,19 +8,19 @@
     android:background="?attr/colorPrimary"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_welcome"
         style="@style/h5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
         android:text="@string/welcome_to"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_zone_movies"
         style="@style/h3_semi_bold"
         android:layout_width="0dp"
@@ -30,27 +30,63 @@
         android:text="@string/zone_movies"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_welcome"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ic_bookmark"
         android:layout_width="20dp"
         android:layout_height="16dp"
         android:layout_marginEnd="12dp"
-        app:srcCompat="@drawable/ic_inbox"
-        app:layout_constraintTop_toTopOf="@+id/tv_welcome"
         app:layout_constraintBottom_toBottomOf="@+id/tv_zone_movies"
-        app:layout_constraintEnd_toStartOf="@id/ic_theme_mode"/>
+        app:layout_constraintEnd_toStartOf="@id/ic_theme_mode"
+        app:layout_constraintTop_toTopOf="@+id/tv_welcome"
+        app:srcCompat="@drawable/ic_inbox" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ic_theme_mode"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
-        app:srcCompat="@drawable/ic_moon"
-        app:layout_constraintTop_toTopOf="@+id/tv_welcome"
         app:layout_constraintBottom_toBottomOf="@+id/tv_zone_movies"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_welcome"
+        app:srcCompat="@drawable/ic_moon" />
 
+    <View
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/etSearchShop"
+        app:layout_constraintEnd_toEndOf="@+id/etSearchShop"
+        app:layout_constraintTop_toTopOf="@+id/etSearchShop" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etSearchShop"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_search"
+        android:drawableEnd="@drawable/ic_search"
+        android:focusable="false"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/search"
+        android:paddingStart="16dp"
+        android:paddingEnd="12dp"
+        android:textColorHint="@color/gray_200"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_zone_movies" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:background="@drawable/bg_bottom_sheet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSearchShop"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
